@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}
+    {{ movie.title }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        {% thumbnail movie.image "400x500" crop='100%' as im %}
+            <img class='fl pa4' src="{{ im.url }}">
+        {% endthumbnail %}
+    </div>
+
+    <div class="description">
+        <h3 class='db tl w-60 ml7'>{{ movie.title }}</h3>
+        <p class='db tl w-60 ml7'><b>Description:</b> {{ movie.description }}</p>
+        <p class='db tl w-60 ml7'><b>Genre:</b> {{ movie.genre }}</p>
+        <p class='db tl w-60 ml7'><b>Start time:</b> {{ movie.start_time }}</p>
+        <p class='db tl w-60 ml7'><b>Duration(in minutes):</b> {{ movie.duration }}</p>
+        <p class='db tl w-60 ml7'><b>Release date:</b> {{ movie.releaseDate }}</p>
+        <p class='db tl w-60 ml7'><b>Price for ticket:</b> ${{ movie.price|floatformat:2 }}</p>
+    </div>
+
+
+    <div class="buy_tickets fl w-100">
+        <h2>Buy tickets:</h2>
+        <form action="." method="post">
+            <div>
+                Row 1:
+                {{ select_places_form.row1_place1 }}
+                {{ select_places_form.row1_place2 }}
+                {{ select_places_form.row1_place3 }}
+                {{ select_places_form.row1_place4 }}
+                {{ select_places_form.row1_place5 }}
+                {{ select_places_form.row1_place6 }}
+                {{ select_places_form.row1_place7 }}
+                {{ select_places_form.row1_place8 }}
+            </div>
+
+            <div>
+                Row 2:
+                {{ select_places_form.row2_place1 }}
+                {{ select_places_form.row2_place2 }}
+                {{ select_places_form.row2_place3 }}
+                {{ select_places_form.row2_place4 }}
+                {{ select_places_form.row2_place5 }}
+                {{ select_places_form.row2_place6 }}
+                {{ select_places_form.row2_place7 }}
+                {{ select_places_form.row2_place8 }}
+            </div>
+
+            <div>
+                Row 3:
+                {{ select_places_form.row3_place1 }}
+                {{ select_places_form.row3_place2 }}
+                {{ select_places_form.row3_place3 }}
+                {{ select_places_form.row3_place4 }}
+                {{ select_places_form.row3_place5 }}
+                {{ select_places_form.row3_place6 }}
+                {{ select_places_form.row3_place7 }}
+                {{ select_places_form.row3_place8 }}
+            </div>
+
+            <div>
+                Row 4:
+                {{ select_places_form.row4_place1 }}
+                {{ select_places_form.row4_place2 }}
+                {{ select_places_form.row4_place3 }}
+                {{ select_places_form.row4_place4 }}
+                {{ select_places_form.row4_place5 }}
+                {{ select_places_form.row4_place6 }}
+                {{ select_places_form.row4_place7 }}
+                {{ select_places_form.row4_place8 }}
+            </div>
+
+            <div>
+                Row 5:
+                {{ select_places_form.row5_place1 }}
+                {{ select_places_form.row5_place2 }}
+                {{ select_places_form.row5_place3 }}
+                {{ select_places_form.row5_place4 }}
+                {{ select_places_form.row5_place5 }}
+                {{ select_places_form.row5_place6 }}
+                {{ select_places_form.row5_place7 }}
+                {{ select_places_form.row5_place8 }}
+            </div>
+            {% csrf_token %}
+            <input type="submit" value="Buy!">
+        </form>
+
+
+
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    {% if places.row1_place1 == True %}
+        $('#id_row1_place1').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place2 == True %}
+        $('#id_row1_place2').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place3 == True %}
+        $('#id_row1_place3').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place4 == True %}
+        $('#id_row1_place4').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place5 == True %}
+        $('#id_row1_place5').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place6 == True %}
+        $('#id_row1_place6').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place7 == True %}
+        $('#id_row1_place7').attr('checked', true);
+    {% endif %}
+    {% if places.row1_place8 == True %}
+        $('#id_row1_place8').attr('checked', true);
+    {% endif %}
+
+
+    {% if places.row2_place1 == True %}
+        $('#id_row2_place1').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place2 == True %}
+        $('#id_row2_place2').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place3 == True %}
+        $('#id_row2_place3').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place4 == True %}
+        $('#id_row2_place4').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place5 == True %}
+        $('#id_row2_place5').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place6 == True %}
+        $('#id_row2_place6').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place7 == True %}
+        $('#id_row2_place7').attr('checked', true);
+    {% endif %}
+    {% if places.row2_place8 == True %}
+        $('#id_row2_place8').attr('checked', true);
+    {% endif %}
+
+
+
+    {% if places.row3_place1 == True %}
+        $('#id_row3_place1').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place2 == True %}
+        $('#id_row3_place2').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place3 == True %}
+        $('#id_row3_place3').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place4 == True %}
+        $('#id_row3_place4').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place5 == True %}
+        $('#id_row3_place5').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place6 == True %}
+        $('#id_row3_place6').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place7 == True %}
+        $('#id_row3_place7').attr('checked', true);
+    {% endif %}
+    {% if places.row3_place8 == True %}
+        $('#id_row3_place8').attr('checked', true);
+    {% endif %}
+
+
+    {% if places.row4_place1 == True %}
+        $('#id_row4_place1').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place2 == True %}
+        $('#id_row4_place2').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place3 == True %}
+        $('#id_row4_place3').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place4 == True %}
+        $('#id_row4_place4').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place5 == True %}
+        $('#id_row4_place5').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place6 == True %}
+        $('#id_row4_place6').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place7 == True %}
+        $('#id_row4_place7').attr('checked', true);
+    {% endif %}
+    {% if places.row4_place8 == True %}
+        $('#id_row4_place8').attr('checked', true);
+    {% endif %}
+
+
+
+    {% if places.row5_place1 == True %}
+        $('#id_row5_place1').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place2 == True %}
+        $('#id_row5_place2').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place3 == True %}
+        $('#id_row5_place3').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place4 == True %}
+        $('#id_row5_place4').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place5 == True %}
+        $('#id_row5_place5').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place6 == True %}
+        $('#id_row5_place6').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place7 == True %}
+        $('#id_row5_place7').attr('checked', true);
+    {% endif %}
+    {% if places.row5_place8 == True %}
+        $('#id_row5_place8').attr('checked', true);
+    {% endif %}
+{% endblock %}

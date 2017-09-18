@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Add new film{% endblock %}
+
+{% block content %}
+    <div class="add_film_form">
+        <form action="." method="post" enctype="multipart/form-data">
+            {{ film_form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Add film" id='submit'>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    Dropzone.options.myDropzone = {
+
+        // Prevents Dropzone from uploading dropped files immediately
+        autoProcessQueue : false,
+
+        init : function() {
+            var submitButton = document.querySelector("#submit")
+            myDropzone = this;
+
+            submitButton.addEventListener("click", function() {
+                myDropzone.processQueue();
+                // Tell Dropzone to process all queued files.
+            });
+
+        }
+    }
+    $('.start_time').mask('9999-99-99 99:99:99');
+    $('.release_date').mask('9999-99-99');
+
+{% endblock %}

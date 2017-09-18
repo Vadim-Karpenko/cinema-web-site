@@ -1,0 +1,17 @@
+.add_film_form {
+    padding-top: 60px;
+}
+
+
+input.dropzone {
+    min-height: 0px;
+}
+
+.buy_tickets>form>div>input {
+    width: 30px;
+    height: 30px;
+}
+
+.buy_tickets>form>div {
+    margin-bottom: 5px;
+}

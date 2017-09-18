@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}All movies{% endblock %}
+
+{% block content %}
+    <div class="main center fl w-100 pa1">
+        {% for movie in movies %}
+            <div class="main dib" class="fl w-100 pa1">
+                <ul class="db pa0 ma0">
+                    <li class='dib films pa3 link b black pv2 db bg-animate hover-bg-light-gray'>
+                        <a href="{{ movie.get_absolute_url }}" >
+                            {% thumbnail movie.image "300x400" crop='100%' as im %}
+                                <img width="300" height="400" src='{{ im.url }}'>
+                            {% endthumbnail %}
+                            <p class="link b blue hover-black no-underline">{{ movie.title }}</p>
+                        </a>
+
+                    </li>
+                </ul>
+
+
+            </div>
+        {% endfor %}
+        {% if request.user.is_authenticated %}
+            <a href='{% url "add_film" %}'><button  class="f6 link dim ph3 pv2 mb2 center db white bg-mid-gray br3 db center">Add film</button></a>
+        {% endif %}
+    </div>
+
+{% endblock %}
