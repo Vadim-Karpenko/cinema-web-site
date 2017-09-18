@@ -15,3 +15,8 @@ input.dropzone {
 .buy_tickets>form>div {
     margin-bottom: 5px;
 }
+
+.movie_title {
+    width: 300px;
+    margin: 0 auto;
+}
